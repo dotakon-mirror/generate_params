@@ -13,7 +13,7 @@ use std::{
     time::{Duration, Instant},
 };
 
-const MAX_K: u32 = 15;
+const MAX_K: u32 = 16;
 
 static EXPECTED_HASHES: [&str; MAX_K as usize] = [
     "8167c4aa55ef5984fe652334f5406fa45887d8d831b07b5a18d01ef5664c4d0a",
@@ -31,10 +31,11 @@ static EXPECTED_HASHES: [&str; MAX_K as usize] = [
     "1461bcd6a8324f4b191a811d4346b30b93fcddf7007e226693176a82121265cd",
     "78c0ad62f1c0c43784095157e997b5ec4fbed7f24983bcb089e7040e6332b008",
     "a84a8311ea02a539fac7d6a6b8e7ea0d6e47d1625ca50a52e1c122869aae417e",
+    "26e7e886064fd936bf8e1b4589480a03d273edada8b3fb3ffa7cb8b23afaae8d",
 ];
 
 fn main() {
-    for k in 1..MAX_K {
+    for k in 1..=MAX_K {
         let filename = format!("params_k{}.bin", k);
         let expected_hash = EXPECTED_HASHES[(k - 1) as usize];
 
