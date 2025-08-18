@@ -1,0 +1,9 @@
+[package]
+name = "generate_params"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+halo2_proofs = "0.3.1"
+pasta_curves = "0.5.1"
+sha3 = "0.10.8"
