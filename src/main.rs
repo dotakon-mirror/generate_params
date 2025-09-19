@@ -15,7 +15,8 @@ use std::{
 
 const MAX_K: u32 = 16;
 
-static EXPECTED_HASHES: [&str; MAX_K as usize] = [
+static EXPECTED_HASHES: [&str; (MAX_K + 1) as usize] = [
+    "c59783c081097e76cb423209c27d03cded7f3b705e33d5e29688193f0b36182f",
     "8167c4aa55ef5984fe652334f5406fa45887d8d831b07b5a18d01ef5664c4d0a",
     "0ba030b01c1f53f497f7b9198653d3ee5e0a89e2705a8764168fcd0e6a8026b7",
     "e791ee48f39fe4be345c8908256045c79fd9837025e34b9419a3d99f5d376c9d",
@@ -35,9 +36,9 @@ static EXPECTED_HASHES: [&str; MAX_K as usize] = [
 ];
 
 fn main() {
-    for k in 1..=MAX_K {
+    for k in 0..=MAX_K {
         let filename = format!("params_k{}.bin", k);
-        let expected_hash = EXPECTED_HASHES[(k - 1) as usize];
+        let expected_hash = EXPECTED_HASHES[k as usize];
 
         if Path::new(&filename).exists() {
             let hash_hex = sha3_file(&filename);
